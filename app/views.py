@@ -143,8 +143,8 @@ def dashboard(request):
     total_companies = Company.objects.count()
     total_users = User.objects.count()
     total_placements = Placement.objects.count()
-    total_offers = PlacementBid.objects.aggregate(Sum('offer'))['offer__sum']
-    total_offers_k = total_offers // 1000
+    #total_offers = PlacementBid.objects.aggregate(Sum('offer'))['offer__sum']
+    # total_offers_k = total_offers // 1000
     
     # Get aggregate data
     top_5 = PlacementBid.objects\
@@ -160,7 +160,7 @@ def dashboard(request):
     context = {'total_companies':total_companies,
                 'total_users':total_users,
                 'total_placements':total_placements,
-                'total_offers':total_offers_k,
+                # 'total_offers':total_offers_k,
                 'top_5_offer_names':top_5_offer_names,
                 'top_5_offer_values':top_5_offer_values}
 
